@@ -22,7 +22,7 @@ This repository contains the source code for a Machine Learning (ML) model-based
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/disease-prediction-app.git
-   cd disease-prediction-app
+   git clone https://github.com/Sudhaanshuu/Predict.git
+   cd su.py
 pip install -r requirements.txt
 python app.py
