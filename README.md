@@ -1,5 +1,5 @@
 # Disease Prediction Web Application
-
+link https://mlpredict.streamlit.app/
 ## Overview
 
 This repository contains the source code for a Machine Learning (ML) model-based web application that predicts diseases based on input symptoms. The application utilizes decision tree algorithms and other advanced techniques for accurate predictions.
@@ -23,6 +23,6 @@ This repository contains the source code for a Machine Learning (ML) model-based
 
    ```bash
    git clone https://github.com/Sudhaanshuu/Predict.git
-   cd su.py
+  
 pip install -r requirements.txt
 python app.py
