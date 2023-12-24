@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 
 import pickle
 from sklearn.metrics import PredictionErrorDisplay
@@ -305,6 +303,49 @@ tr.replace({'prognosis':{'Fungal infection':0,'Allergy':1,'GERD':2,'Chronic chol
 '(vertigo) Paroymsal  Positional Vertigo':36,'Acne':37,'Urinary tract infection':38,'Psoriasis':39,
 'Impetigo':40}},inplace=True)
 
+
+medicine_dictionary = {
+    "Acne": ["Aclear Ointment", "Aclear Capsules"],
+    "Allergy": ["Kaeswar Guggula Tablet", "Khadira Rishtha"],
+    "Arthritis": ["Jogaraja Guggula", "Rasana Pachana", "Kineaz Capsules"],
+    "Bronchial Asthma": ["Talisadi Churna", "Spazex Capsules"],
+    "Common Cold": ["Naradiya Laxmivilasa", "Drakshya Rishtha"],
+    "Chronic cholestasis": ["Sunthhi Khanda Modaka", "Kutaja Ghanabati"],
+    "Covid": ["Ayush 64 Tablet"],
+    "Dengue": ["Plate Plus Capsule"],
+    "Diabetes": ["Madhu Mehari Bati", "Glucostat Capsule"],
+    "Fungal Infection": ["Kaeswar Guggula"],
+    "Gastro": ["Gasex Tablet"],
+    "Hypertension": ["Ashwagandha"],
+    "Hypothyroidism": ["It's better to consult with Doctor"],
+    "Jaundice": ["Live 52 DS"],
+    "Hypoglycemia": ["It's better to consult with Doctor"],
+    "Malaria": ["Ayush 64 Tablet"],
+    "Oestroarthritis": ["Ostygen Capsule"],
+    "Paralysis": ["Rumartho Gold", "Mahamasa Taila"],
+    "Peptic Ulcers": ["Sutin Tablet"],
+    "Pneumonia": ["Naradiya Lakhmi Vilas"],
+    "Psoriasis": ["It's better to consult with Doctor"],
+    "Spondylitis": ["Jogaraja Gugula", "Mahamasa Taila"],
+    "Tuberculosis": ["It's better to consult with Doctor"],
+    "Typhoid": ["It's better to consult with Doctor"],
+    "Urinary Tract": ["Anyolith", "Asocaristha"],
+    "Varicose Veins": ["It's better to consult with Doctor"],
+    "Alcoholic Hepatitis": ["It's better to consult with Doctor"],
+    "Cervical Spondylosis": ["Kineaz Tablets", "Rumartho Gold"],
+    "Chicken Pox": ["It's better to consult with Doctor"],
+    "Chronic cholestasis": ["Sunthi Khanda Modaka", "Live 52 DS"],
+    "Piles": ["Asrsakuthara Rasa", "Pilex"],
+    "Drug Reaction": ["It's better to consult with Doctor"],
+    "GERD": ["Acilans Capsule"],
+    "Gastroenteritis": ["Gasex Tablet", "Sunthi Khanda Modaka"],
+    "Heart Attack": ["It's better to consult with Doctor"],
+    "Hepatitis A, B, C, D, E": ["It's better to consult with Doctor"],
+    "Impetigo": ["It's better to consult with Doctor"],
+    "Migraine": ["It's better to consult with Doctor"],
+    "Paroxysmal Positional Vertigo": ["Ashwagandha"],
+}
+
 X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
@@ -361,12 +402,11 @@ if (selected == 'General Symptoms'):
                 if predicted == a:
                  h = 'yes'
                 break
+
+    medicines = medicine_dictionary.get(disease[predicted], [])
+    
     if st.button('Symptoms Test Result'):
-            st.success(disease[predicted])
-
-
-
-# Heart Disease Prediction Page
-
-
-
+        st.success(f"The predicted disease is: {disease[predicted]}")
+        st.info("Medicines for the predicted disease:")
+        for medicine in medicines:
+            st.success(f"- {medicine}")
